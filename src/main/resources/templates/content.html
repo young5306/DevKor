@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>목록</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body class="gradient-custom">
+    <table>
+        <thead>
+            <tr>
+                <th th:text="Num"></th>
+                <th th:text="Title"></th>
+                <th th:text="Content"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="board : ${resList}">
+                <th th:text="${board.id}"></th>
+                <td th:text="${board.title}"></td>
+                <td th:text="${board.content}"></td>
+                <td>
+                    <a th:href="@{/boards/delete(id=${board.id})}" class="btn btn-danger">삭제</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<button type="button" class="btn btn-secondary" onclick="location.href='/form'">폼입력</button>
+<button type="button" class="btn btn-secondary" onclick="location.href='/logout'">로그아웃</button>
+
+</body>
+</html>
